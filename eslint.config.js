@@ -12,7 +12,7 @@ export default tseslint.config(
       js.configs.recommended,
       ...tseslint.configs.recommended,
       'prettier',
-      'plugin:import/recommended'
+      'plugin:@tanstack/eslint-plugin-query/recommended'
     ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
@@ -23,8 +23,7 @@ export default tseslint.config(
     plugins: {
       'react-hooks': reactHooks,
       'react-refresh': reactRefresh,
-      '@typescript-eslint': tseslint.plugin,
-      import: 'eslint-plugin-import'
+      '@typescript-eslint': tseslint.plugin
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -35,8 +34,7 @@ export default tseslint.config(
       'react/prop-types': 'off',
       'no-unused-vars': ['warn', { args: 'none' }],
       '@typescript-eslint/no-explicit-any': 'error',
-      '@typescript-eslint/no-unused-vars': 'warn',
-      'import/no-unused-modules': ['warn', { unusedExports: true }]
+      '@typescript-eslint/no-unused-vars': 'warn'
     }
   },
   eslintConfigPrettier
