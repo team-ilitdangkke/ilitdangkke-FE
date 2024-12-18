@@ -11,23 +11,32 @@ export default tseslint.config(
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
-      'prettier'
+      'prettier',
+      'plugin:import/recommended'
     ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser
     },
+    parser: '@typescript-eslint/parser',
     plugins: {
       'react-hooks': reactHooks,
-      'react-refresh': reactRefresh
+      'react-refresh': reactRefresh,
+      '@typescript-eslint': tseslint.plugin,
+      import: 'eslint-plugin-import'
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true }
-      ]
+      ],
+      'react/prop-types': 'off',
+      'no-unused-vars': ['warn', { args: 'none' }],
+      '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/no-unused-vars': 'warn',
+      'import/no-unused-modules': ['warn', { unusedExports: true }]
     }
   },
   eslintConfigPrettier
